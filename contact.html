@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Clemz Academy</title>
+<!-- Link to style.css, or you can embed style below -->
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* Basic Reset & Body Styling */
+  body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+  }
+
+  /* Header Styles */
+  header {
+      background-color: #0066cc;
+      padding: 20px;
+      text-align: center;
+      color: white;
+  }
+  header h1 {
+      margin: 0;
+      font-size: 2em;
+  }
+  
+  /* Navigation Styling */
+  nav {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  nav a {
+      color: #fff;
+      margin: 8px 12px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+  }
+  nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+  }
+  /* Active Link Style */
+  nav a.active {
+      background-color: #0055a5;
+      text-decoration: underline;
+  }
+
+  /* Main Content Styling */
+  main {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+  }
+
+  /* Form Styling */
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+  label {
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: bold;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      width: 100%;
+      box-sizing: border-box;
+  }
+  textarea {
+      resize: vertical;
+  }
+  button {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+  button:hover {
+      background-color: #004999;
+  }
+
+  /* Footer styling */
+  footer {
+      background-color: #222;
+      color: #f4f4f4;
+      text-align: center;
+      padding: 15px 20px;
+      margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<header>
+<h1>Contact Clemz Academy</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html" class="active">Contact</a>
+<a href="login.html">Login</a>
+<a href="logout.html">Logout</a>
+<a href="results.html">Results</a>
+<a href="results_entry.html">Manage Results</a>
+</nav>
+</header>
+<main>
+<h2>Contact Us</h2>
+<form>
+<label>Name:</label>
+<input type="text" name="name" required />
+
+<label>Email:</label>
+<input type="email" name="email" required />
+
+<label>Message:</label>
+<textarea name="message" rows="5" required></textarea>
+
+<button type="submit">Send</button>
+</form>
+</main>
+<footer>
+<p>&copy; 2025 Clemz Academy School</p>
+</footer>
+</body>
+</html>

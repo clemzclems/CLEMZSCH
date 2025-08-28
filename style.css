@@ -1,0 +1,135 @@
+/* styles.css - Common style for the entire website */
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header styles */
+header {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 10;
+}
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+nav {
+  margin-top: 15px;
+}
+nav a {
+  display: inline-block;
+  background-color: #fff;
+  color: #2193b0;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+nav a:hover {
+  background-color: #2193b0;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Main content styles */
+main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+/* Buttons styling */
+button {
+  background: #fff;
+  color: #2193b0;
+  border: none;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+button:hover {
+  background: #2193b0;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+}
+
+/* Table styles for results */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff; /* Make table background white for contrast */
+  color: #000; /* Text color in table */
+  border-radius: 8px;
+  overflow: hidden;
+}
+th, td {
+  border: 1px solid #999;
+  padding: 10px;
+  text-align: center;
+}
+th {
+  background-color: #b0c4de; /* light steel blue */
+  font-weight: bold;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: #e0f7fa; /* Light cyan hover effect */
+  transition: background-color 0.2s;
+}
+
+/* Footer styles */
+footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 14px;
+  color: #fff;
+}
+
+@media(max-width: 768px){
+  header, main {
+    padding: 15px;
+  }
+  nav a {
+    display: block;
+    margin: 8px 0;
+    padding: 12px;
+  }
+  button {
+    width: auto;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  table {
+    font-size: 14px;
+  }
+}

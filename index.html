@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clemz Academy School - Student Results Management</title>
+<!-- jsPDF library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Google Fonts for a modern look -->
+<link href="https://fonts.googleapis.com/css2?family=Arial&family=Open+Sans&display=swap" rel="stylesheet" />
+<style>
+  /* Reset default styles & base styles */
+  body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #f0f8ff; /* Light sky blue background */
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+
+  /* Header styles */
+  header {
+    background-color: #87ceeb; /* Sky blue header color */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 2.4em;
+    letter-spacing: 2px;
+  }
+  /* Navigation styles - using Flexbox for horizontal placement */
+  nav {
+    display: flex;
+    justify-content: center; /* centers nav links */
+    flex-wrap: wrap; /* allows wrapping on small screens */
+    margin-top: 10px;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 15px;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+  }
+  nav a:hover, nav a.active {
+    background-color: #fff;
+    color: #007bff;
+  }
+
+  /* Main content area */
+  main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  /* Heading styles */
+  h2 {
+    text-align: center;
+    color: #0066cc;
+    margin-bottom: 10px;
+    font-size: 2em;
+  }
+
+  /* Welcome paragraph */
+  p.intro {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Form styling */
+  form {
+    background-color: #ffffffcc; /* semi-transparent white */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+  }
+  label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+  }
+  input[type="text"],
+  input[type="number"] {
+    width: calc(50% - 20px);
+    padding: 10px 15px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.2s;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  fieldset {
+    border: 2px solid #007bff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  legend {
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1.2em;
+    color: #007bff;
+  }
+
+  /* Buttons styles */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    margin: 20px 10px 10px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.2s;
+  }
+  button:hover {
+    background-color: #0069d9;
+    transform: scale(1.05);
+  }
+  /* Additional button for printing or exporting */
+  button.secondary {
+    background-color: #6c757d;
+  }
+  button.secondary:hover {
+    background-color: #5a6268;
+  }
+
+  /* Table styles for results display */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 12px;
+    text-align: center;
+    font-size: 1em;
+  }
+  th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  /* Footer styles */
+footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  footer p {
+    margin: 10px 0;
+  }
+  footer .social-icons a {
+    margin: 0 12px;
+    font-size: 1.5em;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  footer .social-icons a:hover {
+    color: #ffd700;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header / Navbar -->
+<header>
+  <h1>Clemz Academy School</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="results.html" class="active">Results Management</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main>
+  <h2>Student Results Management System</h2>
+  <p class="intro">
+    Welcome to Clemz Academy's Results Management Portal! Our goal is to streamline student performance tracking, enhance transparency, and empower teachers, students, and parents with accurate, real-time data. Whether you're updating scores, viewing results, or generating reports, our system is designed for simplicity, security, and efficiency.
+  </p>
+
+  <!-- Input Form for Student Results -->
+  <form id="resultsForm">
+    <fieldset>
+      <legend>Input Student Results</legend>
+      <label for="studentName">Student Name</label>
+      <input type="text" id="studentName" placeholder="Enter full name" required />
+
+      <label for="classGrade">Class/Grade</label>
+      <input type="text" id="classGrade" placeholder="e.g., JSS 3" required />
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" placeholder="e.g., Mathematics" required />
+
+      <label for="score">Score</label>
+      <input type="number" id="score" placeholder="Enter score (0-100)" min="0" max="100" required />
+
+      <button type="submit">Add Result</button>
+      <button type="button" class="secondary" onclick="clearResults()">Clear Table</button>
+    </fieldset>
+  </form>
+
+  <!-- Results Data Table -->
+  <h2 style="margin-top:50px;">Student Results Records</h2>
+  <table id="resultsTable">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Class/Grade</th>
+        <th>Subject</th>
+        <th>Score</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data rows will be added here dynamically -->
+    </tbody>
+  </table>
+
+  <!-- Export & Generate PDF Buttons -->
+  <div style="margin-top:30px; text-align:center;">
+    <button onclick="generatePDF()">Download Results as PDF</button>
+    <button class="secondary" onclick="printResults()">Print Results</button>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Clemz Academy. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  </div>
+</footer>
+
+<!-- Font Awesome CDN for Social Icons (Optional) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Scripts for functionality -->
+<script>
+  // Initialize an array to hold results
+  let results = [];
+
+  // Function to add result
+  document.getElementById('resultsForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('studentName').value.trim();
+    const cls = document.getElementById('classGrade').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const score = parseInt(document.getElementById('score').value);
+
+    // Calculate remarks based on score
+    let remarks = '';
+    if (score >= 75) remarks = 'Excellent';
+    else if (score >= 60) remarks = 'Good';
+    else if (score >= 50) remarks = 'Average';
+    else remarks = 'Needs Improvement';
+
+    // Push data to results array
+    const result = { name, cls, subject, score, remarks };
+    results.push(result);
+
+    // Update table
+    updateTable();
+
+    // Reset form
+    document.getElementById('resultsForm').reset();
+  });
+
+  // Function to update table records
+  function updateTable() {
+    const tbody = document.querySelector('#resultsTable tbody');
+    tbody.innerHTML = ''; // Clear current data
+
+    results.forEach(res => {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td>${res.name}</td>
+        <td>${res.cls}</td>
+        <td>${res.subject}</td>
+        <td>${res.score}</td>
+        <td>${res.remarks}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  // Function to clear table
+  function clearResults() {
+    results = [];
+    document.querySelector('#resultsTable tbody').innerHTML = '';
+  }
+
+  // Function to generate PDF using jsPDF
+  function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.setTextColor('#007bff');
+    doc.text('Student Results Report', 105, 20, null, null, 'center');
+
+    let y = 30;
+    doc.setFontSize(12);
+    results.forEach(res => {
+      doc.setTextColor('#000');
+      doc.text(`Name: ${res.name}`, 14, y);
+      doc.text(`Class: ${res.cls}`, 80, y);
+      doc.text(`Subject: ${res.subject}`, 130, y);
+      doc.text(`Score: ${res.score}`, 14, y + 6);
+      doc.text(`Remarks: ${res.remarks}`, 80, y + 6);
+      y += 12;
+
+      if (y > 280) {
+        doc.addPage();
+        y = 20;
+      }
+    });
+
+    doc.save('Student_Results.pdf');
+  }
+
+  // Function to print results
+  function printResults() {
+    const printWindow = window.open('', '', 'width=800,height=600');
+    printWindow.document.write('<html><head><title>Student Results</title></head><body>');
+    printWindow.document.write('<h1 style="text-align:center;">Student Results</h1>');
+    printWindow.document.write(document.getElementById('resultsTable').outerHTML);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+  }
+</script>
+</body>
+</html>

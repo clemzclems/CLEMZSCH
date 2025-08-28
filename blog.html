@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog - Clemz Big Brain Academy</title>
+<!-- Optional Google Fonts for better typography -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+<style>
+  body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+  }
+  header {
+      background: #0066cc;
+      padding: 20px;
+      text-align: center;
+      color: white;
+  }
+  header h1 {
+      margin: 0;
+      font-size: 2em;
+  }
+  nav {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  nav a {
+      color: #fff;
+      margin: 8px 16px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, text-decoration 0.3s;
+  }
+  nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+  }
+  nav a.active {
+      background-color: #0055a5;
+      text-decoration: underline;
+  }
+  main {
+      padding: 20px;
+  }
+  h2 {
+      text-align: center;
+      margin-top: 0;
+  }
+  section {
+      background: white;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  h3 {
+      margin-top: 0;
+      color: #003366;
+  }
+  .blog-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+  }
+  .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #003366;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+  }
+  .read-more:hover {
+      background-color: #0055a5;
+  }
+  footer {
+      background: #222;
+      color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+  }
+  .social-icons a {
+      margin: 0 10px;
+      color: #f4f4f4;
+      font-size: 20px;
+      text-decoration: none;
+  }
+  .social-icons a:hover {
+      color: #00aced;
+  }
+</style>
+<!-- Font Awesome for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+  <h1>Clemz Big Brain Academy</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="logout.html">Logout</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="feedburner.html">Feedburner</a>
+  </nav>
+</header>
+<main>
+<h2>Latest Insights & Stories from Clemz Big Brain Academy</h2>
+<p>Welcome to our dedicated blog space! Here, we share inspiring student success stories, insightful educational tips, updates about our programs, partnership announcements, and thought leadership articles. Dive into our latest posts and stay connected with the heartbeat of Clemz Big Brain Academy.</p>
+
+<!-- Blog Post Example 1 -->
+<section class="blog-post">
+    <h3>Empowering Young Minds: The Success Story of our Tech Innovators</h3>
+    <p class="date">Published on January 15, 2025</p>
+    <img src="images/tech_innovators.jpg" alt="Students working on robotics" class="blog-image" />
+    <p>
+        At Clemz Big Brain Academy, we believe in nurturing curiosity and innovation among our students. Recently, a group of our talented students participated in the National Tech Innovators Challenge held in Lagos. Leading the team was 15-year-old Aisha Bello, whose creative project on renewable energy earned the top prize.
+    </p>
+    <p>
+        The team developed an affordable solar panel system designed for rural communities, improving access to electricity. Aisha shared, "This experience has unlocked my passion for engineering and social impact. I want to continue creating solutions that make a difference."
+    </p>
+    <p>
+        This victory exemplifies our commitment to project-based learning, equipping students with practical skills and real-world experience that prepare them for the future.
+    </p>
+    <a href="blog-post1.html" class="read-more">Read More</a>
+</section>
+
+<!-- Blog Post Example 2 -->
+<section class="blog-post">
+    <h3>Innovative Teaching: Using Technology to Enhance Learning</h3>
+    <p class="date">Published on February 10, 2025</p>
+    <img src="images/tech_classroom.jpg" alt="Interactive classroom technology" class="blog-image" />
+    <p>
+        The digital revolution has transformed classroom learning. At Clemz Big Brain Academy, we're at the forefront, integrating cutting-edge technology to make lessons more engaging and effective. From interactive whiteboards to educational apps and virtual classrooms, our goal is to foster a stimulating environment.
+    </p>
+    <p>
+        During our recent teacher training symposium, educators learned how to utilize virtual reality simulations for science experiments and coding platforms for computer literacy. The feedback has been overwhelmingly positive, with many teachers reporting increased student participation and improved understanding.
+    </p>
+    <p>
+        We believe that embracing innovation is vital in preparing students for a rapidly changing digital world.
+    </p>
+    <a href="blog-post2.html" class="read-more">Read More</a>
+</section>
+
+<!-- Blog Post Example 3 -->
+<section class="blog-post">
+    <h3>Preparing Students for the Future: Career Guidance and Mentorship</h3>
+    <p class="date">Published on March 5, 2025</p>
+    <img src="images/career_guidance.jpg" alt="Students in career guidance session" class="blog-image" />
+    <p>
+        Career guidance is an integral part of our curriculum. Recognizing the importance of early direction, Clemz Big Brain Academy has launched mentorship programs connecting students with industry professionals across sectors like technology, healthcare, finance, and agriculture.
+    </p>
+    <p>
+        Recently, cybersecurity experts visited our school to conduct workshops, inspiring students to pursue careers in cybersecurity and data privacy. Students expressed enthusiasm and newfound clarity regarding their future paths.
+    </p>
+    <p>
+        Our vision is to cultivate a generation of confident, well-informed young leaders ready to make impactful decisions.
+    </p>
+    <a href="blog-post3.html" class="read-more">Read More</a>
+</section>
+
+<!-- Additional Engaging Posts to Fill Content -->
+<section class="blog-post">
+    <h3>Community Service Projects: Cultivating Empathy and Leadership</h3>
+    <p class="date">Published on April 12, 2025</p>
+    <img src="images/community_service.jpg" alt="Students volunteering" class="blog-image" />
+    <p>
+        Beyond academics, we emphasize character development through community service. Our students organized a book drive and a clean-up campaign in Abuja. These initiatives not only helped the community but also fostered teamwork and empathy among participants.
+    </p>
+    <p>
+        Student leader Emmanuel Johnson shared, "Volunteering has taught me the importance of giving back and working together for a common good."
+    </p>
+    <a href="blog-post4.html" class="read-more">Read More</a>
+</section>
+
+<!-- Final Thought or Article -->
+<section class="blog-post">
+    <h3>The Future of Education in Nigeria: Opportunities and Challenges</h3>
+    <p class="date">Published on May 1, 2025</p>
+    <img src="images/education_future.jpg" alt="Students and teachers in discussion" class="blog-image" />
+    <p>
+        The landscape of education in Nigeria is rapidly evolving. With the rollout of digital infrastructure and policy reforms, schools like Clemz Big Brain Academy are poised to leverage these changes for the betterment of learners. However, challenges like access, funding, and teacher training remain.
+    </p>
+    <p>
+        As educators and policymakers collaborate, the future holds promising potential for transforming Nigeria into a knowledge-driven nation. Our role is to adapt, innovate, and inspire every step of the way.
+    </p>
+    <a href="blog-post5.html" class="read-more">Read More</a>
+</section>
+
+<!-- Call-to-Action for Readers -->
+<section class="call-to-action" style="text-align: center; padding: 20px;">
+    <h2>Stay Connected</h2>
+    <p>Subscribe to our newsletter or follow us on social media to stay updated with all our latest news, events, and stories from Clemz Big Brain Academy.</p>
+    <a href="#subscribe-section" class="read-more">Subscribe Now</a>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Clemz Big Brain Academy. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login - Clemz Academy</title>
+<!-- Link to style.css, or embed style below -->
+<link rel="stylesheet" href="style.css" />
+<style>
+  body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+  }
+
+  header {
+      background-color: #0066cc;
+      padding: 20px;
+      text-align: center;
+      color: white;
+  }
+  header h1 {
+      margin: 0;
+      font-size: 2em;
+  }
+
+  nav {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  nav a {
+      color: #fff;
+      margin: 8px 12px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+  }
+  nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+  }
+  nav a.active {
+      background-color: #0055a5;
+      text-decoration: underline;
+  }
+
+  main {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+  }
+
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+  label {
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      width: 100%;
+      box-sizing: border-box;
+  }
+  button {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+  button:hover {
+      background-color: #004999;
+  }
+
+  footer {
+      background-color: #222;
+      color: #f4f4f4;
+      text-align: center;
+      padding: 15px 20px;
+      margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<header>
+<h1>Login to Clemz Academy</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+<a href="login.html" class="active">Login</a>
+<a href="logout.html">Logout</a>
+<a href="results.html">Results</a>
+<a href="results_entry.html">Manage Results</a>
+</nav>
+</header>
+<main>
+<h2>Login to Your Account</h2>
+<form>
+<label>Username:</label>
+<input type="text" name="username" required />
+
+<label>Password:</label>
+<input type="password" name="password" required />
+
+<button type="submit">Login</button>
+</form>
+</main>
+<footer>
+<p>&copy; 2025 Clemz Academy School</p>
+</footer>
+</body>
+</html>
