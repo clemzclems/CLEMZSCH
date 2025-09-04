@@ -4,145 +4,184 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Contact Clemz Academy</title>
-<!-- Link to style.css, or you can embed style below -->
-<link rel="stylesheet" href="style.css" />
+
 <style>
-  /* Basic Reset & Body Styling */
-  body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-  }
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: #f4f4f4;
+  line-height: 1.6;
+}
 
-  /* Header Styles */
-  header {
-      background-color: #0066cc;
-      padding: 20px;
-      text-align: center;
-      color: white;
-  }
-  header h1 {
-      margin: 0;
-      font-size: 2em;
-  }
-  
-  /* Navigation Styling */
-  nav {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-  }
-  nav a {
-      color: #fff;
-      margin: 8px 12px;
-      padding: 8px 12px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-  }
-  nav a:hover {
-      background-color: rgba(255,255,255,0.2);
-  }
-  /* Active Link Style */
-  nav a.active {
-      background-color: #0055a5;
-      text-decoration: underline;
-  }
+/* Header */
+header {
+  background: linear-gradient(135deg, #0066cc, #004999);
+  padding: 25px 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+header h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 
-  /* Main Content Styling */
-  main {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-  }
+/* Navigation */
+nav {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+nav a {
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+nav a.active {
+  background: #fff;
+  color: #0066cc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
 
-  /* Form Styling */
-  form {
-      display: flex;
-      flex-direction: column;
-  }
-  label {
-      margin-top: 10px;
-      margin-bottom: 4px;
-      font-weight: bold;
-  }
-  input[type="text"],
-  input[type="email"],
-  textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1em;
-      width: 100%;
-      box-sizing: border-box;
-  }
-  textarea {
-      resize: vertical;
-  }
-  button {
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #0066cc;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  }
-  button:hover {
-      background-color: #004999;
-  }
+/* Main */
+main {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+main h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0066cc;
+  font-size: 1.8em;
+}
 
-  /* Footer styling */
-  footer {
-      background-color: #222;
-      color: #f4f4f4;
-      text-align: center;
-      padding: 15px 20px;
-      margin-top: 40px;
-  }
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus,
+textarea:focus {
+  border-color: #0066cc;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,102,204,0.4);
+}
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Button */
+button {
+  padding: 12px;
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+button:hover {
+  background: #004999;
+  transform: translateY(-2px);
+}
+button:active {
+  background: #003366;
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 18px;
+  margin-top: 50px;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
 </style>
 </head>
 <body>
 <header>
-<h1>Contact Clemz Academy</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html" class="active">Contact</a>
-<a href="login.html">Login</a>
-<a href="logout.html">Logout</a>
-<a href="results.html">Results</a>
-<a href="results_entry.html">Manage Results</a>
-</nav>
+  <h1>Contact Clemz Academy</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="logout.html">Logout</a>
+    <a href="results.html">Results</a>
+    <a href="results_entry.html">Manage Results</a>
+  </nav>
 </header>
+
 <main>
-<h2>Contact Us</h2>
-<form>
-<label>Name:</label>
-<input type="text" name="name" required />
+  <h2>Contact Us</h2>
+  <form>
+    <div>
+      <label>Name:</label>
+      <input type="text" name="name" required />
+    </div>
 
-<label>Email:</label>
-<input type="email" name="email" required />
+    <div>
+      <label>Email:</label>
+      <input type="email" name="email" required />
+    </div>
 
-<label>Message:</label>
-<textarea name="message" rows="5" required></textarea>
+    <div>
+      <label>Message:</label>
+      <textarea name="message" required></textarea>
+    </div>
 
-<button type="submit">Send</button>
-</form>
+    <button type="submit">Send Message</button>
+  </form>
 </main>
+
 <footer>
-<p>&copy; 2025 Clemz Academy School</p>
+  <p>&copy; 2025 Clemz Academy School | Designed with ❤️</p>
 </footer>
 </body>
 </html>

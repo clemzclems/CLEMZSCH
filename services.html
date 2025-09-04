@@ -4,36 +4,138 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Our Services</title>
-<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+<style>
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: #f4f4f4;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #0066cc, #004999);
+  padding: 25px 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+header h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+nav a.active {
+  background: #fff;
+  color: #0066cc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Main */
+main {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+main h2 {
+  text-align: center;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+main ul {
+  list-style: none;
+  padding: 0;
+}
+main ul li {
+  background: #f9f9f9;
+  margin: 12px 0;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+main ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background: #eef6ff;
+  border-left: 5px solid #0066cc;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  font-size: 0.95em;
+}
+</style>
 </head>
 <body>
 <header>
-<h1>Our Services at Clemz Academy</h1>
-<nav>
-<!-- same navigation links -->
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html">Contact</a>
-<a href="login.html">Login</a>
-<a href="logout.html">Logout</a>
-<a href="results.html">Results</a>
-<a href="results_entry.html">Manage Results</a>
-</nav>
+  <h1>Our Services at Clemz Academy</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="logout.html">Logout</a>
+    <a href="results.html">Results</a>
+    <a href="results_entry.html">Manage Results</a>
+  </nav>
 </header>
+
 <main>
-<ul>
-<li>Student Management System</li>
-<li>Teacher Portals and Scheduling</li>
-<li>Online Exams and Assessments</li>
-<li>Fee Payment and Invoice System</li>
-<li>Library Access and Resources</li>
-<li>Event Management & Announcements</li>
-</ul>
+  <h2>What We Offer</h2>
+  <ul>
+    <li>📘 Student Management System</li>
+    <li>👩‍🏫 Teacher Portals and Scheduling</li>
+    <li>📝 Online Exams and Assessments</li>
+    <li>💳 Fee Payment and Invoice System</li>
+    <li>📚 Library Access and Resources</li>
+    <li>🎉 Event Management & Announcements</li>
+  </ul>
 </main>
+
 <footer>
-<p>&copy; 2025 Clemz Academy School</p>
+  <p>&copy; 2025 Clemz Academy School</p>
 </footer>
 </body>
 </html>

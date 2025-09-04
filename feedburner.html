@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clemz Academy – Subscribe</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+<style>
+/* Reset & Base */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Open Sans',sans-serif;
+  background:linear-gradient(135deg,#1a1a1a,#333);
+  color:#f4f4f4; line-height:1.6;
+}
+
+/* Header */
+header{
+  background:linear-gradient(135deg,#0066cc,#004999);
+  padding:25px 20px; text-align:center; color:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+}
+header h1{font-size:2.2em;font-weight:700;margin-bottom:10px}
+
+/* Navigation */
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+nav a{
+  color:#fff;text-decoration:none;padding:10px 18px;border-radius:25px;
+  font-weight:600;transition:all .3s ease
+}
+nav a:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+nav a.active{background:#fff;color:#0066cc;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+
+/* Layout */
+.container{max-width:900px;margin:50px auto;padding:0 16px}
+.card{
+  background:#fff;color:#333;border-radius:12px;padding:24px;
+  box-shadow:0 4px 15px rgba(0,0,0,.25); margin-bottom:24px
+}
+.card h2{color:#0066cc;margin-bottom:12px;text-align:center}
+
+/* Form styles */
+label{font-weight:700;color:#333;margin-bottom:6px;display:block}
+input[type="email"], input[type="text"]{
+  width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-size:1em;
+  transition:border-color .3s, box-shadow .3s;margin-top:6px
+}
+input:focus{border-color:#0066cc;outline:none;box-shadow:0 0 6px rgba(0,102,204,.35)}
+.help{font-size:.9em;color:#666;margin-top:6px}
+
+/* Buttons */
+.btn{
+  display:inline-block;background:#0066cc;color:#fff;border:none;border-radius:8px;
+  padding:12px 18px;font-weight:700;cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);transition:background .3s, transform .2s
+}
+.btn:hover{background:#004999;transform:translateY(-2px)}
+.btn.secondary{background:#6c757d}.btn.secondary:hover{background:#5a6268}
+.actions{text-align:center;margin-top:12px}
+
+/* Footer */
+footer{background:#222;color:#ccc;text-align:center;padding:20px;margin-top:50px;font-size:.95em}
+</style>
+</head>
+<body>
+<header>
+  <h1>Subscribe to Clemz Academy</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="results.html">Results</a>
+    <a href="results_entry.html">Manage Results</a>
+    <a href="login.html">Login</a>
+    <a href="logout.html">Logout</a>
+    <a href="feedburner.html" class="active">FeedBurner</a>
+  </nav>
+</header>
+
+<div class="container">
+  <!-- FeedBurner Email Subscribe -->
+  <section class="card">
+    <h2>Email Subscription (FeedBurner)</h2>
+    <form id="fbForm" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow"
+      onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri='+document.getElementById('fbUri').value, 'popupwindow', 'scrollbars=yes,width=550,height=520');">
+      <label for="fbEmail">Enter your email address</label>
+      <input type="email" id="fbEmail" name="email" placeholder="you@example.com" required />
+      <input type="hidden" id="fbUri" name="uri" value="YOUR_FEED_ID" />
+      <input type="hidden" name="loc" value="en_US" />
+      <div class="help">Replace <strong>YOUR_FEED_ID</strong> with your FeedBurner feed ID.</div>
+      <div class="actions"><button class="btn" type="submit">Subscribe via Email</button></div>
+    </form>
+    <p class="help" style="margin-top:10px;">Note: If FeedBurner email delivery isn’t available on your account, consider connecting your RSS to services like <em>follow.it</em> or Mailchimp.</p>
+  </section>
+
+  <!-- RSS Subscribe -->
+  <section class="card">
+    <h2>Subscribe via RSS</h2>
+    <label for="rssUrl">Your RSS Feed URL</label>
+    <input type="text" id="rssUrl" value="https://your-domain.com/rss.xml" />
+    <div class="actions">
+      <a id="openRss" class="btn" href="https://your-domain.com/rss.xml">Open RSS Feed</a>
+      <button class="btn secondary" type="button" id="copyRss">Copy RSS URL</button>
+    </div>
+    <p class="help">Replace the URL above with your actual RSS feed (e.g., <code>/feed.xml</code> or <code>/rss.xml</code>).</p>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Clemz Academy School</p>
+</footer>
+
+<script>
+/* Copy RSS URL */
+document.getElementById('copyRss').addEventListener('click', ()=>{
+  const input = document.getElementById('rssUrl');
+  input.select(); input.setSelectionRange(0, 99999);
+  const ok = document.execCommand('copy');
+  if(!ok && navigator.clipboard){ navigator.clipboard.writeText(input.value); }
+  alert('RSS URL copied!');
+});
+/* Keep link in sync if user edits the box */
+document.getElementById('rssUrl').addEventListener('input', (e)=>{
+  document.getElementById('openRss').href = e.target.value.trim() || '#';
+});
+</script>
+</body>
+</html>

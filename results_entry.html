@@ -4,208 +4,207 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Clemz Academy School - Student Results Management</title>
-<!-- Include jsPDF -->
+<!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
 <style>
-  /* Basic Reset & Body Style */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light sky blue background */
-    margin: 0;
-    padding: 0;
-    color: #000;
-  }
+/* Reset & Base */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Open Sans',Arial,sans-serif;
+  background:linear-gradient(135deg,#1a1a1a,#333);
+  color:#f4f4f4; line-height:1.6;
+}
 
-  /* Header Styles */
-  header {
-    background-color: #87ceeb; /* Sky blue header */
-    padding: 15px 20px;
-    text-align: center;
-  }
-  header h1 {
-    margin: 0;
-    color: #000;
-    font-size: 24px;
-  }
-  nav {
-    margin-top: 10px;
-  }
-  nav a {
-    color: black;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-  }
-  nav a:hover {
-    color: red;
-  }
-  /* Main Content */
-  main {
-    padding: 20px;
-  }
-  /* Form styling */
-  form {
-    background-color: #ffffffcc; /* semi-transparent white */
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 950px;
-    margin: auto;
-  }
-  h2 {
-    text-align: center;
-    color: #0066cc;
-  }
-  /* Input Fields */
-  input[type="text"],
-  input[type="number"] {
-    width: calc(50% - 20px);
-    padding: 8px 10px;
-    margin: 5px 0 15px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  fieldset {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  legend {
-    font-weight: bold;
-    padding: 0 10px;
-  }
-  /* Buttons */
-  button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  button:hover {
-    background-color: #0069d9;
-  }
-  /* Table styling */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  th, td {
-    border: 1px solid #999;
-    padding: 10px;
-    text-align: center;
-  }
-  th {
-    background-color: #b0c4de; /* light steel blue */
-  }
-  /* For better readability */
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  /* Footer */
-  footer {
-    background-color: #87ceeb;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 30px;
-  }
+/* Header */
+header{
+  background:linear-gradient(135deg,#0066cc,#004999);
+  padding:25px 20px; text-align:center; color:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+header h1{font-size:2.2em;font-weight:700;letter-spacing:.5px}
+
+/* Navigation */
+nav{margin-top:15px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+nav a{
+  color:#fff;text-decoration:none;padding:10px 18px;border-radius:25px;
+  font-weight:600;transition:all .3s ease
+}
+nav a:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+nav a.active{background:#fff;color:#0066cc;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+
+/* Main container */
+main{max-width:1100px;margin:40px auto;padding:0 16px}
+
+/* Card */
+.card{
+  background:#fff;color:#333;border-radius:12px;padding:24px;
+  box-shadow:0 4px 15px rgba(0,0,0,.25); margin-bottom:32px
+}
+.card h2{color:#0066cc;text-align:center;margin-bottom:16px}
+
+/* Form */
+form{display:grid;gap:16px}
+.form-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px
+}
+label{font-weight:600;color:#333;margin-bottom:6px;display:block}
+input[type="text"],input[type="number"]{
+  width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-size:1em;
+  transition:border-color .3s, box-shadow .3s
+}
+input:focus{
+  border-color:#0066cc;outline:none;box-shadow:0 0 6px rgba(0,102,204,.4)
+}
+fieldset{
+  border:2px solid #0066cc;border-radius:10px;padding:16px
+}
+legend{font-weight:700;color:#0066cc;padding:0 8px}
+
+/* Buttons */
+.btn{
+  display:inline-block;background:#0066cc;color:#fff;border:none;border-radius:8px;
+  padding:12px 22px;font-weight:700;cursor:pointer;font-size:1em;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);
+  transition:background .3s, transform .2s
+}
+.btn:hover{background:#004999;transform:translateY(-2px)}
+.btn:active{background:#003366;transform:translateY(0)}
+.btn.secondary{background:#6c757d}
+.btn.secondary:hover{background:#5a6268}
+
+/* Table */
+.table-wrap{overflow:auto}
+table{
+  width:100%;border-collapse:collapse;margin-top:12px;border-radius:8px;overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,.2);background:#fff;color:#333
+}
+th,td{padding:14px;text-align:center}
+th{background:#0066cc;color:#fff}
+tr:nth-child(even){background:#f9f9f9}
+
+/* Footer */
+footer{
+  background:#222;color:#ccc;text-align:center;padding:20px;margin-top:50px;font-size:.95em
+}
+
+/* Small helper spacing */
+.actions{margin-top:10px;text-align:center}
 </style>
 </head>
 <body>
 <header>
-<h1>Clemz Academy School - Student Results Management</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html">Contact</a>
-<a href="login.html">Login</a>
-<a href="logout.html">Logout</a>
-<a href="results.html">Results</a>
-</nav>
+  <h1>Clemz Academy School - Student Results Management</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="logout.html">Logout</a>
+    <a href="results.html" class="active">Results</a>
+  </nav>
 </header>
+
 <main>
-<h2>Add Student Result</h2>
-<form id="resultForm">
-<!-- Student Info -->
-<label>Student ID:</label><br />
-<input type="text" id="studentId" required /><br />
-<label>Name:</label><br />
-<input type="text" id="studentName" required /><br />
-<label>Class:</label><br />
-<input type="text" id="studentClass" required /><br />
-<!-- Subjects -->
-<fieldset>
-<legend>Enter Marks for Subjects</legend>
-<label>Mathematics:</label><br />
-<input type="number" id="subject_math" min="0" max="100" required /><br />
-<label>English Studies:</label><br />
-<input type="number" id="subject_english" min="0" max="100" required /><br />
-<label>Hausa/Yoruba:</label><br />
-<input type="number" id="subject_hausa" min="0" max="100" required /><br />
-<label>Social Studies:</label><br />
-<input type="number" id="subject_social" min="0" max="100" required /><br />
-<label>Christian Religious Studies:</label><br />
-<input type="number" id="subject_crs" min="0" max="100" required /><br />
-<label>Home Economics:</label><br />
-<input type="number" id="subject_home" min="0" max="100" required /><br />
-<label>Physical & Health Education:</label><br />
-<input type="number" id="subject_phe" min="0" max="100" required /><br />
-<label>Basic Technology:</label><br />
-<input type="number" id="subject_basictech" min="0" max="100" required /><br />
-<label>Agricultural Science:</label><br />
-<input type="number" id="subject_agriculture" min="0" max="100" required /><br />
-<label>Computer Science:</label><br />
-<input type="number" id="subject_computer" min="0" max="100" required /><br />
-<label>Business Studies:</label><br />
-<input type="number" id="subject_business" min="0" max="100" required /><br />
-<label>Creative Arts:</label><br />
-<input type="number" id="subject_arts" min="0" max="100" required /><br />
-<label>Civic Education:</label><br />
-<input type="number" id="subject_civic" min="0" max="100" required /><br />
-</fieldset>
-<button type="submit">Add Result</button>
-</form>
-<!-- Results Table -->
-<h2>Results List</h2>
-<table id="resultsTable">
-<tr>
-<th>Student ID</th>
-<th>Name</th>
-<th>Class</th>
-<th>Total Score</th>
-<th>Average</th>
-<th>Grade</th>
-<th>Eff.</th>
-<th>Psych.</th>
-</tr>
-<!-- Results will be populated here dynamically -->
-</table>
-<!-- Buttons for PDF download and print -->
-<div style="margin-top:20px; text-align:center;">
-<button id="downloadPdf">Download PDF</button>
-<button onclick="window.print()">Print</button>
-</div>
+  <!-- Form Card -->
+  <section class="card">
+    <h2>Add Student Result</h2>
+    <form id="resultForm">
+      <!-- Student Info -->
+      <div class="form-grid">
+        <div>
+          <label for="studentId">Student ID</label>
+          <input type="text" id="studentId" required />
+        </div>
+        <div>
+          <label for="studentName">Name</label>
+          <input type="text" id="studentName" required />
+        </div>
+        <div>
+          <label for="studentClass">Class</label>
+          <input type="text" id="studentClass" required />
+        </div>
+      </div>
+
+      <!-- Subjects -->
+      <fieldset>
+        <legend>Enter Marks for Subjects</legend>
+        <div class="form-grid">
+          <div><label for="subject_math">Mathematics</label><input type="number" id="subject_math" min="0" max="100" required /></div>
+          <div><label for="subject_english">English Studies</label><input type="number" id="subject_english" min="0" max="100" required /></div>
+          <div><label for="subject_hausa">Hausa/Yoruba</label><input type="number" id="subject_hausa" min="0" max="100" required /></div>
+          <div><label for="subject_social">Social Studies</label><input type="number" id="subject_social" min="0" max="100" required /></div>
+          <div><label for="subject_crs">Christian Religious Studies</label><input type="number" id="subject_crs" min="0" max="100" required /></div>
+          <div><label for="subject_home">Home Economics</label><input type="number" id="subject_home" min="0" max="100" required /></div>
+          <div><label for="subject_phe">Physical & Health Education</label><input type="number" id="subject_phe" min="0" max="100" required /></div>
+          <div><label for="subject_basictech">Basic Technology</label><input type="number" id="subject_basictech" min="0" max="100" required /></div>
+          <div><label for="subject_agriculture">Agricultural Science</label><input type="number" id="subject_agriculture" min="0" max="100" required /></div>
+          <div><label for="subject_computer">Computer Science</label><input type="number" id="subject_computer" min="0" max="100" required /></div>
+          <div><label for="subject_business">Business Studies</label><input type="number" id="subject_business" min="0" max="100" required /></div>
+          <div><label for="subject_arts">Creative Arts</label><input type="number" id="subject_arts" min="0" max="100" required /></div>
+          <div><label for="subject_civic">Civic Education</label><input type="number" id="subject_civic" min="0" max="100" required /></div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" class="btn">Add Result</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Results Table Card -->
+  <section class="card">
+    <h2>Results List</h2>
+    <div class="table-wrap">
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Total Score</th>
+            <th>Average</th>
+            <th>Grade</th>
+            <th>Eff.</th>
+            <th>Psych.</th>
+          </tr>
+        </thead>
+        <tbody><!-- rows injected here --></tbody>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button id="downloadPdf" class="btn">Download PDF</button>
+      <button class="btn secondary" onclick="window.print()">Print</button>
+    </div>
+  </section>
 </main>
+
 <footer>
-<p>&copy; 2025 Clemz Academy School</p>
+  <p>&copy; 2025 Clemz Academy School</p>
 </footer>
-<!-- Scripts -->
+
 <script>
-  // Handle form submission: add data, calculate total, avg, assign grade
-document.getElementById('resultForm').addEventListener('submit', function(e) {
+/* Data + Helpers */
+const form = document.getElementById('resultForm');
+const tbody = document.querySelector('#resultsTable tbody');
+
+form.addEventListener('submit', function(e){
   e.preventDefault();
-  // Collect all subject marks
-  const subjects = [ parseFloat(document.getElementById('subject_math').value), parseFloat(document.getElementById('subject_english').value), parseFloat(document.getElementById('subject_hausa').value), parseFloat(document.getElementById('subject_social').value), parseFloat(document.getElementById('subject_crs').value), parseFloat(document.getElementById('subject_home').value), parseFloat(document.getElementById('subject_phe').value), parseFloat(document.getElementById('subject_basictech').value), parseFloat(document.getElementById('subject_agriculture').value), parseFloat(document.getElementById('subject_computer').value), parseFloat(document.getElementById('subject_business').value), parseFloat(document.getElementById('subject_arts').value), parseFloat(document.getElementById('subject_civic').value),
-  ]
-  // Calculate total and average
-  const total = subjects.reduce((sum, val) => sum + val, 0);
-  const average = (total / subjects.length).toFixed(2);
-  // Determine grade
+
+  // Collect subjects
+  const subjectIds = [
+    'subject_math','subject_english','subject_hausa','subject_social',
+    'subject_crs','subject_home','subject_phe','subject_basictech',
+    'subject_agriculture','subject_computer','subject_business','subject_arts','subject_civic'
+  ];
+  const subjects = subjectIds.map(id => parseFloat(document.getElementById(id).value || 0));
+
+  const total = subjects.reduce((s,v)=>s+v,0);
+  const average = +(total / subjects.length).toFixed(2);
+
   let grade = '';
   if (average >= 70) grade = 'A';
   else if (average >= 60) grade = 'B+';
@@ -213,58 +212,60 @@ document.getElementById('resultForm').addEventListener('submit', function(e) {
   else if (average >= 45) grade = 'C+';
   else if (average >= 40) grade = 'C';
   else grade = 'F';
-  // Default grades for effectiveness and psychomotor
-  const effectiveGrade = 'Good'; 
-  const psychomotorGrade = 'Excellent';
-  // Insert into table
-  const table = document.getElementById('resultsTable');
-  const row = table.insertRow();
-  row.insertCell().innerText = document.getElementById('studentId').value;
-  row.insertCell().innerText = document.getElementById('studentName').value;
-  row.insertCell().innerText = document.getElementById('studentClass').value;
-  row.insertCell().innerText = total.toFixed(2);
-  row.insertCell().innerText = average;
-  row.insertCell().innerText = grade;
-  row.insertCell().innerText = effectiveGrade;
-  row.insertCell().innerText = psychomotorGrade; document.getElementById('resultForm').reset();
+
+  const eff = 'Good';
+  const psych = 'Excellent';
+
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${document.getElementById('studentId').value}</td>
+    <td>${document.getElementById('studentName').value}</td>
+    <td>${document.getElementById('studentClass').value}</td>
+    <td>${total.toFixed(2)}</td>
+    <td>${average}</td>
+    <td>${grade}</td>
+    <td>${eff}</td>
+    <td>${psych}</td>
+  `;
+  tbody.appendChild(row);
+
+  form.reset();
 });
-// Function to generate PDF report using jsPDF
-document.getElementById('downloadPdf').addEventListener('click', function() {
+
+/* PDF Export */
+document.getElementById('downloadPdf').addEventListener('click', function () {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  // Add title
-  doc.setFontSize(16);
-  doc.text('Clemz Academy School - Student Results', 14, 20);
-  // Set table headers
-  const headers = ['ID', 'Name', 'Class', 'Total', 'Avg', 'Grade', 'Eff.', 'Psych.'];
-  const colWidths = [20, 30, 20, 30, 20, 20, 25, 25];
-  let startX = 14;
-  let startY = 30;
-  // Draw headers
-  doc.setFontSize(10);
-  headers.forEach((h, i) => {
-    doc.text(h, startX, startY);
-    startX += colWidths[i];
-  });
-  // Data Rows
-  const table = document.getElementById('resultsTable');
-  const rows = table.getElementsByTagName('tr');
-  let y = startY + 10;
-  for (let i = 1; i < rows.length; i++) {
-    const cells = rows[i].getElementsByTagName('td');
+
+  // Title
+  doc.setFontSize(18);
+  doc.setTextColor(0, 102, 204); // #0066cc
+  doc.text('Clemz Academy School - Student Results', 105, 16, { align: 'center' });
+
+  // Headers
+  const headers = ['ID','Name','Class','Total','Avg','Grade','Eff.','Psych.'];
+  const colWidths = [20, 40, 22, 24, 18, 20, 24, 24];
+  let xStart = 14, y = 28;
+
+  doc.setFontSize(11);
+  doc.setTextColor(0); // black
+  headers.forEach((h,i)=>{ doc.text(h, xStart, y); xStart += colWidths[i]; });
+
+  // Rows
+  y += 8;
+  [...tbody.querySelectorAll('tr')].forEach(tr=>{
     let x = 14;
-    for (let j = 0; j < cells.length; j++) {
-      const text = cells[j].innerText;
-      doc.text(text, x, y);
-      x += colWidths[j];
-    }
-    y += 10;
-    if (y > 280 && i !== rows.length - 1) {
+    [...tr.children].forEach((td,i)=>{
+      doc.text(String(td.textContent), x, y);
+      x += colWidths[i];
+    });
+    y += 8;
+    if (y > 280){
       doc.addPage();
-      y = 20; // Reset y for new page
+      y = 20;
     }
-  }
-  // Save PDF
+  });
+
   doc.save('StudentResults.pdf');
 });
 </script>
