@@ -1,333 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Clemz Academy School - Student Results Management</title>
-<!-- jsPDF library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
-<style>
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Open Sans', Arial, sans-serif;
-  background: linear-gradient(135deg, #1a1a1a, #333);
-  color: #f4f4f4;
-  line-height: 1.6;
-}
-
-/* Header */
-header {
-  background: linear-gradient(135deg, #0066cc, #004999);
-  padding: 25px 20px;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-header h1 {
-  margin: 0;
-  font-size: 2.4em;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* Navigation */
-nav {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 18px;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-nav a:hover {
-  background: rgba(255,255,255,0.15);
-  transform: translateY(-2px);
-}
-nav a.active {
-  background: #fff;
-  color: #0066cc;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-/* Main */
-main {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-}
-h2 {
-  text-align: center;
-  color: #0066cc;
-  margin-bottom: 15px;
-  font-size: 2em;
-}
-p.intro {
-  max-width: 900px;
-  margin: 0 auto 40px;
-  font-size: 1.2em;
-  text-align: center;
-  color: #ddd;
-}
-
-/* Form */
-form {
-  background: #fff;
-  color: #333;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  margin-bottom: 40px;
-}
-label {
-  font-weight: 600;
-  display: block;
-  margin-top: 15px;
-  color: #333;
-}
-input[type="text"],
-input[type="number"] {
-  width: 100%;
-  padding: 12px 15px;
-  margin: 8px 0 20px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1em;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-input:focus {
-  border-color: #0066cc;
-  outline: none;
-  box-shadow: 0 0 6px rgba(0,102,204,0.4);
-}
-fieldset {
-  border: 2px solid #0066cc;
-  border-radius: 10px;
-  padding: 20px;
-}
-legend {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #0066cc;
-}
-
-/* Buttons */
-button {
-  background: #0066cc;
-  color: #fff;
-  padding: 12px 24px;
-  margin: 15px 10px 0 0;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
-button:hover {
-  background: #004999;
-  transform: translateY(-2px);
-}
-button:active {
-  background: #003366;
-}
-button.secondary {
-  background: #6c757d;
-}
-button.secondary:hover {
-  background: #5a6268;
-}
-
-/* Table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 30px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-th, td {
-  padding: 14px;
-  text-align: center;
-  font-size: 1em;
-}
-th {
-  background: #0066cc;
-  color: #fff;
-}
-tr:nth-child(even) {
-  background: #f9f9f9;
-  color: #333;
-}
-tr:nth-child(odd) {
-  background: #fff;
-  color: #333;
-}
-
-/* Footer */
-footer {
-  background: #222;
-  color: #ccc;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
-}
-footer .social-icons a {
-  margin: 0 12px;
-  font-size: 1.5em;
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-footer .social-icons a:hover {
-  color: #ffd700;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bible PWA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body>
+  <header>
+    <h1>📖 Bible App</h1>
+    <p>Quick verses from KJV, WEB, BBE</p>
+  </header>
 
-<header>
-  <h1>Clemz Academy School</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="results.html" class="active">Results Management</a>
-    <a href="students.html">Students</a>
-    <a href="teachers.html">Teachers</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <main>
+    <form id="verseForm">
+      <input type="text" id="reference" placeholder="e.g. John 3:16" required>
+      <select id="translation">
+        <option value="kjv">KJV</option>
+        <option value="web">WEB</option>
+        <option value="bbe">BBE</option>
+      </select>
+      <button type="submit">Get Verse</button>
+    </form>
 
-<main>
-  <h2>Student Results Management System</h2>
-  <p class="intro">
-    Welcome to Clemz Academy's Results Management Portal! Our goal is to streamline student performance tracking, enhance transparency, and empower teachers, students, and parents with accurate, real-time data.
-  </p>
+    <div id="result">
+      <h2 id="ref"></h2>
+      <p id="verseText"></p>
+    </div>
+  </main>
 
-  <form id="resultsForm">
-    <fieldset>
-      <legend>Input Student Results</legend>
-      <label for="studentName">Student Name</label>
-      <input type="text" id="studentName" placeholder="Enter full name" required />
+  <footer>
+    <small>Powered by bible-api.com & bolls.life</small>
+  </footer>
 
-      <label for="classGrade">Class/Grade</label>
-      <input type="text" id="classGrade" placeholder="e.g., JSS 3" required />
-
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" placeholder="e.g., Mathematics" required />
-
-      <label for="score">Score</label>
-      <input type="number" id="score" placeholder="Enter score (0-100)" min="0" max="100" required />
-
-      <button type="submit">Add Result</button>
-      <button type="button" class="secondary" onclick="clearResults()">Clear Table</button>
-    </fieldset>
-  </form>
-
-  <h2 style="margin-top:50px;">Student Results Records</h2>
-  <table id="resultsTable">
-    <thead>
-      <tr>
-        <th>Student Name</th>
-        <th>Class/Grade</th>
-        <th>Subject</th>
-        <th>Score</th>
-        <th>Remarks</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <div style="margin-top:30px; text-align:center;">
-    <button onclick="generatePDF()">Download Results as PDF</button>
-    <button class="secondary" onclick="printResults()">Print Results</button>
-  </div>
-</main>
-
-<footer>
-  <p>&copy; 2025 Clemz Academy. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-</footer>
-
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<script>
-let results = [];
-document.getElementById('resultsForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = studentName.value.trim();
-  const cls = classGrade.value.trim();
-  const subject = document.getElementById('subject').value.trim();
-  const score = parseInt(document.getElementById('score').value);
-
-  let remarks = score >= 75 ? 'Excellent' : score >= 60 ? 'Good' : score >= 50 ? 'Average' : 'Needs Improvement';
-  results.push({ name, cls, subject, score, remarks });
-  updateTable();
-  this.reset();
-});
-function updateTable() {
-  const tbody = document.querySelector('#resultsTable tbody');
-  tbody.innerHTML = '';
-  results.forEach(r => {
-    tbody.innerHTML += `<tr>
-      <td>${r.name}</td>
-      <td>${r.cls}</td>
-      <td>${r.subject}</td>
-      <td>${r.score}</td>
-      <td>${r.remarks}</td>
-    </tr>`;
-  });
-}
-function clearResults() {
-  results = [];
-  document.querySelector('#resultsTable tbody').innerHTML = '';
-}
-function generatePDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.setFontSize(18);
-  doc.setTextColor('#0066cc');
-  doc.text('Student Results Report', 105, 20, null, null, 'center');
-  let y = 30;
-  doc.setFontSize(12);
-  results.forEach(r => {
-    doc.setTextColor('#000');
-    doc.text(`Name: ${r.name}`, 14, y);
-    doc.text(`Class: ${r.cls}`, 80, y);
-    doc.text(`Subject: ${r.subject}`, 130, y);
-    doc.text(`Score: ${r.score}`, 14, y+6);
-    doc.text(`Remarks: ${r.remarks}`, 80, y+6);
-    y += 12;
-    if (y > 280) { doc.addPage(); y = 20; }
-  });
-  doc.save('Student_Results.pdf');
-}
-function printResults() {
-  const win = window.open('', '', 'width=800,height=600');
-  win.document.write('<h1 style="text-align:center;">Student Results</h1>');
-  win.document.write(document.getElementById('resultsTable').outerHTML);
-  win.document.close();
-  win.print();
-}
-</script>
+  <script src="main.js"></script>
 </body>
 </html>
